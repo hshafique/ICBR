@@ -8,9 +8,26 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol POIDetailViewContollerDelegate <NSObject>
+- (void)removeDetailViewController;
+@end
 
-@interface POIDetailsViewController : UIViewController {
-    
+@interface POIDetailsViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate>
+{
+    UINavigationBar *navigationBar_;
+    id<POIDetailViewContollerDelegate> delegate_;
+    IBOutlet UITableView *tableView_;
+    NSArray *nameOfBusness_;
+    NSArray *typeOfBusiness_;
+    NSArray *addressList_;
+    NSArray *briefDescription_;
+    int currentIndex_;
 }
+
+@property (assign) id<POIDetailViewContollerDelegate> delegate;
+
+-(IBAction) buttonPressed:(id)sender;
+@property (nonatomic, retain) UINavigationBar *navigationBar;
+-(void) setCurrentIndex:(int)value;
 
 @end

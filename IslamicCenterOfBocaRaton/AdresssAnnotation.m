@@ -8,7 +8,27 @@
 
 #import "AdresssAnnotation.h"
 
-
 @implementation AdresssAnnotation
+@synthesize coordinate;
+@synthesize title = title_;
+@synthesize subTitle = subTitle_;
+
+-(NSString*) title
+{
+    return title_;
+}
+
+-(NSString*) subtitle
+{
+    return subTitle_;
+}
+
+-(id)initWithCoordinate:(CLLocationCoordinate2D) c{
+	coordinate=c;
+    title_ = [[NSString alloc] init];
+    subTitle_ = [[NSString alloc] init];
+    
+	return self;
+}
 
 @end

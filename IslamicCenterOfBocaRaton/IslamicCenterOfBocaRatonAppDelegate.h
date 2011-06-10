@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface IslamicCenterOfBocaRatonAppDelegate : NSObject <UIApplicationDelegate> {
-
+@interface IslamicCenterOfBocaRatonAppDelegate : NSObject <UIApplicationDelegate>
+{
+    NSArray *viewControllers_;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;

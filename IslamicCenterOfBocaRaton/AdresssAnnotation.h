@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MapKit/MapKit.h>
 
+@interface AdresssAnnotation : NSObject <MKAnnotation> {
+    CLLocationCoordinate2D coordinate;
+    NSString *title_;
+    NSString *subTitle_;
 
-@interface AdresssAnnotation : NSObject {
-    
 }
+
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSString *subTitle;
 
 @end

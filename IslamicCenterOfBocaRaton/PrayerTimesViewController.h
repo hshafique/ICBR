@@ -7,10 +7,59 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "IFPrayerTimes.h"
+#import "DailyPrayerTimes.h"
+#import "PlistReaderWriter.h"
+#import "SettingsViewController.h"
 
-
-@interface PrayerTimesViewController : UIViewController {
+@interface PrayerTimesViewController : UIViewController <NSXMLParserDelegate> {
+    DailyPrayerTimes *dailyPrayerTimes_;
+    IFPrayerTimes *dateData_;
+    NSDate *currentDateInP_;
+    NSArray *athaanNames_;
+    PlistReaderWriter *settingsData;
     
+	IBOutlet UILabel* label;
+    UIActivityIndicatorView *activity_;
+    IBOutlet UILabel *iqFajr_;
+    IBOutlet UILabel *iqShurooq_;
+    IBOutlet UILabel *iqDhohur_;
+    IBOutlet UILabel *iqAsr_;
+    IBOutlet UILabel *iqMaghrib_;
+    IBOutlet UILabel *iqIsha_;
+    IBOutlet UILabel *jumaa_;
+    IBOutlet UILabel *iqJumaa_;
+    IBOutlet UILabel *atFajr_;
+    IBOutlet UILabel *atShurooq_;
+    IBOutlet UILabel *atDhohur_;
+    IBOutlet UILabel *atAsr_;
+    IBOutlet UILabel *atMaghrib_;
+    IBOutlet UILabel *atIsha_;
+    IBOutlet UILabel *hijriDate_;
+    IBOutlet UILabel *calendarDate_;
+    IBOutlet UILabel *formattedAddress_;
+    
+    int pageNumber_;
 }
+
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activity;
+@property (nonatomic, retain) DailyPrayerTimes *dailyPrayerTimes;
+@property (nonatomic, retain) IFPrayerTimes *dateData;
+@property (nonatomic, retain) NSDate *currentDateInP;
+@property (nonatomic, retain) UILabel *atFajr;
+
+
+-(void) setAlarm:(NSDate*)date:(NSString*)eventText;
+-(void) updateAthaanTimes;
+-(void) setPageNumber:(int)pageNumber;
+-(void) updateCalendarDateBasedOnPageNumber;
+-(void) startAthaanAlarms;
+-(void) startIqamaAlarms;
+-(void) cancelAllNotifications;
+-(void) loadPrayerData;
+-(NSString *) convertMonthToString:(NSInteger)month;
+-(void) clearPrayerTable;
+-(void) updateData;
+-(void) updateMaghribIqamaTime;
 
 @end

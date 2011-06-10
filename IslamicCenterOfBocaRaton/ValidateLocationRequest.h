@@ -7,10 +7,22 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PlistReaderWriter.h"
 
 
-@interface ValidateLocationRequest : NSObject {
-    
+@interface ValidateLocationRequest : NSObject <NSXMLParserDelegate>
+{
+    NSURLConnection *connectionInProgress_;
+    NSMutableData *webData_;
+    NSString *title_;
+    NSMutableString *value_;
+    BOOL foundLocation_;
+    PlistReaderWriter *settings;
+    NSString *finishedParsing_;
 }
+
+@property(nonatomic, retain) NSString *finishedParsing;
+
+-(void)getCityInformationFromGoogle:(NSString *)cityName;
 
 @end
