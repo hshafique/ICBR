@@ -14,6 +14,7 @@
     IBOutlet UIImageView *imageView_;
     IBOutlet UIButton *button_;
     IBOutlet UIActivityIndicatorView *activityView_;
+    IBOutlet UIWebView *webView_;
     
     ICBRImages *imageData_;
     int pageNumber_;

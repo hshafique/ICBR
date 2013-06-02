@@ -22,7 +22,7 @@
     NSError *requestError;
     NSURLResponse *urlResponse = nil;
     // construct the web service url
-    NSURL *url = [NSURL URLWithString:@"http://www.assahaba.org/icbr.org/iphone_App/images.txt"];
+    NSURL *url = [NSURL URLWithString:@"http://www.abd-apps.com/iphone_app/prayer.txt"];
     
     // create a request object with that URL for the exact times
     NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringCacheData timeoutInterval:30];
@@ -44,7 +44,7 @@
         loadedData_ = [[NSString alloc] initWithData:response
                                                  encoding:NSUTF8StringEncoding];
         //imageList_ = [[NSArray alloc] initWithObjects:[loadedData_ componentsSeparatedByString:@"\r\n"], nil];
-        NSArray *listItems = [loadedData_ componentsSeparatedByString:@"\r\n"];
+        NSArray *listItems = [loadedData_ componentsSeparatedByString:@","];
         imageList_ = [[NSArray alloc] initWithArray:listItems];
         //imageList_ = [loadedData_ componentsSeparatedByString:@"\r\n"];
         //imageList_ = [NSArray arrayWithObjects:[loadedData_ componentsSeparatedByString:@"\r\n"], nil];
@@ -83,6 +83,11 @@
 {
     NSLog(@"Finished loading web data");
     self.loadingStatus = @"DONE";
+}
+
+-(NSString *)getStringBasedOnPage:(int) pageNumber
+{
+    return [imageList_ objectAtIndex:pageNumber];
 }
 
 @end

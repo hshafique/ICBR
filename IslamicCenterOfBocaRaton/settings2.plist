@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ActivateAthaanAlarm</key>
+	<true/>
+	<key>ActivateIqamaAlarm</key>
+	<false/>
+	<key>Asr</key>
+	<string>4</string>
+	<key>AzaanName</key>
+	<integer>0</integer>
+	<key>CurrentZipCode</key>
+	<string>33431</string>
+	<key>Dhohur</key>
+	<string>5</string>
+	<key>Fajr</key>
+	<string>6</string>
+	<key>FormattedAddress</key>
+	<string>Boca Raton, FL, USA</string>
+	<key>IqamaAdvanceTime</key>
+	<integer>0</integer>
+	<key>IqamaName</key>
+	<integer>0</integer>
+	<key>IqamaOverride</key>
+	<false/>
+	<key>Isha</key>
+	<string>2</string>
+	<key>Latitude</key>
+	<string>26.3583</string>
+	<key>Longitude</key>
+	<string>-80.0834</string>
+	<key>Maghrib</key>
+	<string>3</string>
+	<key>NewYear2012IsUpdated</key>
+	<false/>
+</dict>
+</plist>

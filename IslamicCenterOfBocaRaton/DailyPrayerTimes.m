@@ -19,6 +19,7 @@
 @synthesize month = month_;
 @synthesize day = day_;
 @synthesize year = year_;
+@synthesize hijriDate = hijriDate_;
 @synthesize ifStatus = ifStatus_;
 
 -(id)init
@@ -56,29 +57,6 @@
     // populdated
     char *errorMsg;
  
-    /*NSString *dropSQL = @"DROP TABLE PRAYER_TABLE;";
-    
-    if (sqlite3_exec(database, [dropSQL UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK)
-    {
-        // if table exists, the data is already in the sql database, exit here
-        //if (strcmp("no such table: PRAYER_TABLE", errorMsg) != 0)
-        //{
-        //sqlite3_close(database);
-        NSLog(@"table already exists %s", errorMsg);  
-        //return;
-    }
-    
-    NSString *dropIqamaSQL = @"DROP TABLE IQAMA_TABLE;";
-    
-    if (sqlite3_exec(database, [dropIqamaSQL UTF8String], NULL, NULL, &errorMsg) != SQLITE_OK)
-    {
-        // if table exists, the data is already in the sql database, exit here
-        //if (strcmp("no such table: PRAYER_TABLE", errorMsg) != 0)
-        //{
-        //sqlite3_close(database);
-        NSLog(@"table already exists %s", errorMsg);  
-        //return;
-    }*/
     
     // check if table exists, if it does exit now as the data is already loaded
     NSString *tableExists = @"SELECT * FROM PRAYER_TABLE";
@@ -161,14 +139,6 @@
     sqlite3_prepare_v2(database, select_stmt, -1, &statement, NULL);
     while (sqlite3_step(statement) == SQLITE_ROW)
     {
-        const char *cmonthName = (const char*)sqlite3_column_text(statement, 0);
-        NSString *monthName = [[[NSString alloc] initWithUTF8String:cmonthName] autorelease];
-        const char *cdayName = (const char*)sqlite3_column_text(statement, 1);
-        NSString *dayName = [[[NSString alloc] initWithUTF8String:cdayName] autorelease];
-        const char *cyearName = (const char*)sqlite3_column_text(statement, 2);
-        NSString *yearName = [[[NSString alloc] initWithUTF8String:cyearName] autorelease];
-        const char *cfajrName = (const char*)sqlite3_column_text(statement, 3);
-        NSString *fajrName = [[[NSString alloc] initWithUTF8String:cfajrName] autorelease];
         break;
     }
     sqlite3_finalize(statement);
@@ -227,7 +197,7 @@
         NSLog(@"Failed to open database");
     }
     
-    NSString *selectSQL = [NSString stringWithFormat: @"SELECT MONTH, DAY, YEAR, FAJR, SUNRISE, DHOHUR, ASR, MAGHRIB, ISHA FROM IQAMA_TABLE WHERE month=\"%@\" AND day=\"%@\" AND YEAR=\"%@\"", lMonth, lDay, lYear];
+    NSString *selectSQL = [NSString stringWithFormat: @"SELECT MONTH, DAY, YEAR, FAJR, SUNRISE, DHOHUR, ASR, MAGHRIB, ISHA,HIJMONTH, HIJDAY, HIJYEAR FROM IQAMA_TABLE WHERE month=\"%@\" AND day=\"%@\" AND YEAR=\"%@\"", lMonth, lDay, lYear];
     
     const char *select_stmt = [selectSQL UTF8String];
     sqlite3_stmt    *statement;
@@ -251,12 +221,24 @@
         
         const char *cIshaName = (const char*)sqlite3_column_text(statement, 8);
         result.isha = [NSString stringWithUTF8String:cIshaName];
+
+        const char *cHijriMonth = (const char*)sqlite3_column_text(statement, 9);
+        const char *cHijriDay = (const char*)sqlite3_column_text(statement, 10);
+        const char *cHijriYear = (const char*)sqlite3_column_text(statement, 11);
+        NSString *hDay = [[NSString alloc] initWithUTF8String:cHijriDay];
+        NSString *hMonth = [[NSString alloc] initWithUTF8String:cHijriMonth];
+        NSString *hYear = [[NSString alloc] initWithUTF8String:cHijriYear];
         
+        result.hijriDate = [NSString stringWithFormat:@"%@ %@, %@",hDay, hMonth, hYear];
+        [hDay release];
+        [hMonth release];
+        [hYear release];
+
         break;
         
     }
     sqlite3_finalize(statement);
-    sqlite3_close(database);    
+    sqlite3_close(database);   
     
 }
 -(void) insertRowIntoDatabase
@@ -283,6 +265,144 @@
     sqlite3_finalize(statement);
     sqlite3_close(database);
     
+}
+
+-(BOOL)update2012data
+{
+    NSString *dataFilePath;
+    dataFilePath = [[NSBundle mainBundle] pathForResource:@"AzanIqamaTimes2012-1" 
+                                                   ofType:@"txt"];  
+    
+    if ( nil == dataFilePath ) return NO;
+    NSError *error;
+    
+    NSString *dataSource = [NSString stringWithContentsOfFile:dataFilePath encoding:NSUTF8StringEncoding error:&error];
+    
+    NSArray *lines = [dataSource componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    sqlite3 *database;
+    if (sqlite3_open([[self dataFilePath:kFilename] UTF8String], &database) != SQLITE_OK)
+    {
+        sqlite3_close(database);
+        NSLog(@"Failed to open database %s", sqlite3_errmsg(database));
+    }
+    
+    for(NSString *line in lines)
+    {
+        NSArray *lineElements = [line componentsSeparatedByString:@","];
+        // insert into the table
+        if ([lineElements count] > 12)
+        {
+            NSString *insertIqamaSQL = [NSString stringWithFormat: @"INSERT INTO IQAMA_TABLE (MONTH, DAY, YEAR, WEEKDAY, HIJMONTH, HIJDAY, HIJYEAR,FAJR, SUNRISE, DHOHUR, ASR, MAGHRIB, ISHA) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\",\"%@\", \"%@ am\", \"%@ am\", \"%@ pm\", \"%@ pm\", \"%@ pm\", \"%@ pm\")", [lineElements objectAtIndex:0], [lineElements objectAtIndex:1], [lineElements objectAtIndex:2], [lineElements objectAtIndex:3], [lineElements objectAtIndex:4], [lineElements objectAtIndex:5], [lineElements objectAtIndex:6], [lineElements objectAtIndex:8], [lineElements objectAtIndex:9], [lineElements objectAtIndex:11], [lineElements objectAtIndex:13], [lineElements objectAtIndex:15], [lineElements objectAtIndex:17]];
+
+            NSString *insertAthaanSQL = [NSString stringWithFormat: @"INSERT INTO PRAYER_TABLE (MONTH, DAY, YEAR, FAJR, SUNRISE, DHOHUR, ASR, MAGHRIB, ISHA) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\",\"%@\", \"%@\", \"%@\")", [lineElements objectAtIndex:0], [lineElements objectAtIndex:1], [lineElements objectAtIndex:2],[lineElements objectAtIndex:7], [lineElements objectAtIndex:9], [lineElements objectAtIndex:10],[lineElements objectAtIndex:12], [lineElements objectAtIndex:14], [lineElements objectAtIndex:16]];
+
+            const char *insert_stmt = [insertIqamaSQL UTF8String];
+            sqlite3_stmt    *statement;
+            sqlite3_prepare_v2(database, insert_stmt, -1, &statement, NULL);
+            if (statement != NULL)
+            {
+                if (sqlite3_step(statement) == SQLITE_DONE)
+                {
+                    //NSLog(@"update complete");
+                }
+            }
+            else 
+            {
+                NSLog(@"insert failed %s", sqlite3_errmsg(database));
+            }
+            
+            const char *insertAthaan_stmt = [insertAthaanSQL UTF8String];
+            sqlite3_stmt    *statement2;
+            sqlite3_prepare_v2(database, insertAthaan_stmt, -1, &statement2, NULL);
+            if (statement2 != NULL)
+            {
+                if (sqlite3_step(statement2) == SQLITE_DONE)
+                {
+                    //NSLog(@"update complete");
+                }
+            }
+            else 
+            {
+                NSLog(@"insert failed %s", sqlite3_errmsg(database));
+            }
+            
+            sqlite3_finalize(statement);
+            sqlite3_finalize(statement2);
+        }
+    }    
+    
+    sqlite3_close(database);
+
+    return YES;
+}
+
+-(BOOL)update2013data
+{
+    NSString *dataFilePath;
+    dataFilePath = [[NSBundle mainBundle] pathForResource:@"AzanandIqamaTimes2013"
+                                                   ofType:@"txt"];
+    
+    if ( nil == dataFilePath ) return NO;
+    NSError *error;
+    
+    NSString *dataSource = [NSString stringWithContentsOfFile:dataFilePath encoding:NSUTF8StringEncoding error:&error];
+    
+    NSArray *lines = [dataSource componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    sqlite3 *database;
+    if (sqlite3_open([[self dataFilePath:kFilename] UTF8String], &database) != SQLITE_OK)
+    {
+        sqlite3_close(database);
+        NSLog(@"Failed to open database %s", sqlite3_errmsg(database));
+    }
+    
+    for(NSString *line in lines)
+    {
+        NSArray *lineElements = [line componentsSeparatedByString:@","];
+        // insert into the table
+        if ([lineElements count] > 12)
+        {
+            NSString *insertIqamaSQL = [NSString stringWithFormat: @"INSERT INTO IQAMA_TABLE (MONTH, DAY, YEAR, WEEKDAY, HIJMONTH, HIJDAY, HIJYEAR,FAJR, SUNRISE, DHOHUR, ASR, MAGHRIB, ISHA) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\",\"%@\", \"%@ am\", \"%@ am\", \"%@ pm\", \"%@ pm\", \"%@ pm\", \"%@ pm\")", [lineElements objectAtIndex:0], [lineElements objectAtIndex:1], [lineElements objectAtIndex:2], [lineElements objectAtIndex:3], [lineElements objectAtIndex:4], [lineElements objectAtIndex:5], [lineElements objectAtIndex:6], [lineElements objectAtIndex:8], [lineElements objectAtIndex:9], [lineElements objectAtIndex:11], [lineElements objectAtIndex:13], [lineElements objectAtIndex:15], [lineElements objectAtIndex:17]];
+            
+            NSString *insertAthaanSQL = [NSString stringWithFormat: @"INSERT INTO PRAYER_TABLE (MONTH, DAY, YEAR, FAJR, SUNRISE, DHOHUR, ASR, MAGHRIB, ISHA) VALUES (\"%@\", \"%@\", \"%@\", \"%@\", \"%@\", \"%@\",\"%@\", \"%@\", \"%@\")", [lineElements objectAtIndex:0], [lineElements objectAtIndex:1], [lineElements objectAtIndex:2],[lineElements objectAtIndex:7], [lineElements objectAtIndex:9], [lineElements objectAtIndex:10],[lineElements objectAtIndex:12], [lineElements objectAtIndex:14], [lineElements objectAtIndex:16]];
+            
+            const char *insert_stmt = [insertIqamaSQL UTF8String];
+            sqlite3_stmt    *statement;
+            sqlite3_prepare_v2(database, insert_stmt, -1, &statement, NULL);
+            if (statement != NULL)
+            {
+                if (sqlite3_step(statement) == SQLITE_DONE)
+                {
+                    //NSLog(@"update complete");
+                }
+            }
+            else
+            {
+                NSLog(@"insert failed %s", sqlite3_errmsg(database));
+            }
+            
+            const char *insertAthaan_stmt = [insertAthaanSQL UTF8String];
+            sqlite3_stmt    *statement2;
+            sqlite3_prepare_v2(database, insertAthaan_stmt, -1, &statement2, NULL);
+            if (statement2 != NULL)
+            {
+                if (sqlite3_step(statement2) == SQLITE_DONE)
+                {
+                    //NSLog(@"update complete");
+                }
+            }
+            else
+            {
+                NSLog(@"insert failed %s", sqlite3_errmsg(database));
+            }
+            
+            sqlite3_finalize(statement);
+            sqlite3_finalize(statement2);
+        }
+    }
+    
+    sqlite3_close(database);
+    
+    return YES;
 }
 
 -(void) insertIqamaRowIntoDatabase
@@ -362,6 +482,7 @@
     
     // create and initiate the connection non - blocking
     connectionInProgress_ = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+    [urlString release];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data

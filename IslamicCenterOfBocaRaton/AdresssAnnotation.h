@@ -16,7 +16,7 @@
 
 }
 
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *subTitle;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subTitle;
 
 @end

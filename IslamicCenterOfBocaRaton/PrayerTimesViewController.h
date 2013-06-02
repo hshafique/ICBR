@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "IFPrayerTimes.h"
 #import "DailyPrayerTimes.h"
 #import "PlistReaderWriter.h"
 #import "SettingsViewController.h"
 
 @interface PrayerTimesViewController : UIViewController <NSXMLParserDelegate> {
     DailyPrayerTimes *dailyPrayerTimes_;
-    IFPrayerTimes *dateData_;
     NSDate *currentDateInP_;
     NSArray *athaanNames_;
     PlistReaderWriter *settingsData;
@@ -44,12 +42,11 @@
 
 @property (nonatomic, retain) IBOutlet UIActivityIndicatorView *activity;
 @property (nonatomic, retain) DailyPrayerTimes *dailyPrayerTimes;
-@property (nonatomic, retain) IFPrayerTimes *dateData;
 @property (nonatomic, retain) NSDate *currentDateInP;
 @property (nonatomic, retain) UILabel *atFajr;
 
 
--(void) setAlarm:(NSDate*)date:(NSString*)eventText;
+-(void) setAlarm:(NSDate*)date:(NSString*)eventText:(NSInteger)alarmType;
 -(void) updateAthaanTimes;
 -(void) setPageNumber:(int)pageNumber;
 -(void) updateCalendarDateBasedOnPageNumber;

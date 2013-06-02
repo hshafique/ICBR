@@ -23,5 +23,6 @@
 @property (nonatomic, retain) NSArray *imageList;
 
 -(void) loadImageData:(NSInteger)currentPage;
+-(NSString *)getStringBasedOnPage:(int) pageNumber;
 
 @end

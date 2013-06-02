@@ -27,8 +27,21 @@ static NSUInteger kNumberOfPages = 10;
 -(id) init
 {
     UITabBarItem *tbi = [self tabBarItem];
-    [tbi setImage:[UIImage imageNamed:@"Prayer Times.png"]];
-    CGRect myImageRect = CGRectMake(0, 380, 320, 20);
+    [tbi setImage:[UIImage imageNamed:@"11-clock.png"]];
+    [tbi setTitle:@"Prayer Times"];
+    BOOL classic = YES;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
+    {
+        CGSize result = [[UIScreen mainScreen] bounds].size;
+        if (result.height == 568)
+            classic = NO;
+    }
+    
+    CGRect myImageRect;
+    if (classic)
+        myImageRect = CGRectMake(0, 380, 320, 20);
+    else
+        myImageRect = CGRectMake(0, 430, 320, 20);
     pageControl_ = [[UIPageControl alloc] initWithFrame:myImageRect]; // set in header
     [pageControl_ setNumberOfPages:kNumberOfPages];
     [pageControl_ setCurrentPage:0];
@@ -119,13 +132,6 @@ static NSUInteger kNumberOfPages = 10;
 -(void)viewWillAppear:(BOOL)animated
 {
     NSLog(@"View will appear");
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

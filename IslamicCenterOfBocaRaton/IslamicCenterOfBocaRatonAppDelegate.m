@@ -14,6 +14,10 @@
 #import "ICBRImagesViewController.h"
 #import "ICBRImageScrollViewController.h"
 #import "ICBRImages.h"
+#import "AdvancedSettingsViewController.h"
+#import "LecturesRootViewController.h"
+#import "UpcomingActivitiesViewController.h"
+#import "PlistReaderWriter.h"
 
 @implementation IslamicCenterOfBocaRatonAppDelegate
 
@@ -22,27 +26,44 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    PlistReaderWriter *plistData = [[PlistReaderWriter alloc]init];
+    ICBRImages *prayerOverride = [[ICBRImages alloc] init];
+
     // Override point for customization after application launch.
+    if ([[prayerOverride.imageList objectAtIndex:0] isEqualToString:@"YES"])
+    {
+        [plistData setIqamaOverride:YES];
+        [plistData setFajr:[prayerOverride.imageList objectAtIndex:1]];
+        [plistData setDhohur:[prayerOverride.imageList objectAtIndex:2]];
+        [plistData setAsr:[prayerOverride.imageList objectAtIndex:3]];
+        [plistData setMaghrib:[prayerOverride.imageList objectAtIndex:4]];
+        [plistData setIsha:[prayerOverride.imageList objectAtIndex:5]];
+    }
+    else
+        [plistData setIqamaOverride:NO];
+
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     
     // create three view controllers
     UIViewController *vc1 = [[DailyPrayerScrollerViewController alloc] init];
-    UIViewController *vc2 = [[ICBRImageScrollViewController alloc] init];
     UIViewController *vc3 = [[LocalPOIViewController alloc] init];
-    UIViewController *vc4 = [[SettingsViewController alloc] init];
+    UIViewController *vc4 = [[LecturesRootViewController alloc] init];
+    UIViewController *vc5 = [[AdvancedSettingsViewController alloc] init];
+    UIViewController *vc2 = [[UpcomingActivitiesViewController alloc] init];
     
     
     // make an array containing the three view controllers
-    viewControllers_ = [NSArray arrayWithObjects:vc1, vc2, vc3, vc4, nil];
+    viewControllers_ = [NSArray arrayWithObjects:vc1, vc4, vc2, vc3, vc5, nil];
     
     // the view controller array retains vc1, vc2, and vc3, and vc4 we can release
     // our ownership of them in this method
     [vc1 release];
     [vc2 release];
     [vc3 release];
-    [vc4 release];
+    [vc4 release];    
+    [vc5 release];
     
-    [vc4 addObserver:self forKeyPath:@"toggleStatus" options:NSKeyValueObservingOptionNew context:NULL];
+    [vc5 addObserver:self forKeyPath:@"toggleStatus" options:NSKeyValueObservingOptionNew context:NULL];
 
     // attach them to the tab bar controller
     [tabBarController setViewControllers:viewControllers_];
@@ -57,6 +78,8 @@
     //application.applicationIconBadgeNumber = 0;
     
     // Handle launching from a notification
+         
+
     UILocalNotification *localNotif =
     [launchOptions objectForKey:UIApplicationLaunchOptionsLocalNotificationKey];
     if (localNotif) {
@@ -118,21 +141,20 @@
     }
 
     // now lets check to see if the image array has been updated
-    ICBRImages *images = [[ICBRImages alloc] init];
-    ICBRImageScrollViewController *scroller = [viewControllers_ objectAtIndex:1];
-
-    NSLog(@"arrays are %@ and second one is %@", [images.imageList objectAtIndex:0], [scroller.imageList.imageList objectAtIndex:0]);
-    if ([[images.imageList objectAtIndex:0] isEqualToString:[scroller.imageList.imageList objectAtIndex:0]])
+    PlistReaderWriter *plistData = [[PlistReaderWriter alloc]init];
+    ICBRImages *prayerOverride = [[ICBRImages alloc] init];
+    if ([[prayerOverride.imageList objectAtIndex:0] isEqualToString:@"YES"])
     {
-        //do nothing as the data has not been updated
-        NSLog(@"strings are equal");
+        [plistData setIqamaOverride:YES];
+        [plistData setFajr:[prayerOverride.imageList objectAtIndex:1]];
+        [plistData setDhohur:[prayerOverride.imageList objectAtIndex:2]];
+        [plistData setAsr:[prayerOverride.imageList objectAtIndex:3]];
+        [plistData setMaghrib:[prayerOverride.imageList objectAtIndex:4]];
+        [plistData setIsha:[prayerOverride.imageList objectAtIndex:5]];
     }
     else
-    {
-        //need to reload data
-        [scroller reloadImages];
-    }
-    [images release];
+        [plistData setIqamaOverride:NO];
+
 
 }
 

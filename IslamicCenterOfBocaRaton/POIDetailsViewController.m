@@ -18,11 +18,11 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        nameOfBusness_ = [[NSArray alloc] initWithObjects:@"Islamic Center of Boca Raton", @"Airlink Tours and Travel", @"West Palm Beach Masjid", @"Pompano Masjid", @"Islamic Center of South Florida", @"Islamic Center of Broward", @"Masjid Tawhid", @"Masjid Al Iman",@"Masjid Jamaat Al Mumineen", nil];
+        typeOfBusiness_ = [[NSArray alloc] initWithObjects:@"Masjid", @"business", @"Masjid",@"Masjid", @"Masjid", @"Masjid", @"Masjid", @"Masjid", @"Masjid",nil];
+        addressList_ = [[NSArray alloc] initWithObjects:@"3100 NW 5th Avenue, Boca Raton, FL 33431", @"123 NW 13th St., Boca Raton, FL 33432", @"4893 Purdy Lane, West Palm Beach, FL 33415", @"507 Ne 6th St, Pompano Beach, FL 33060",@"5457 NW 108th Ave, Fort Lauderdale, FL 33351, USA", @"8658 NW 44th ST, Fort Lauderdale, FL 33351, USA", @"1557 NW5th St, Fort Lauderdale, FL 33311, USA", @"2542 Franklin Park Drive, Fort Lauderdale, FL 33311, USA", @"3222 Holiday Springs Blvd. Margate, FL 33063, USA", nil];
+        briefDescription_ = [[NSArray alloc] initWithObjects:@"The Islamic Center of Boca Raton consists of a Masjid and a fulltime Islamic School (Garden of the Sahaba Academy). ICBR offers daily lectures after Maghrib prayer, and a wide host of Social Activities, as well as other services. We strive our utmost to keep all of such activities grounded in and conducted according to the Quran and Sunnah, with strict attention given to avoiding any innovations", @"Local travel agency with Hajj and Umrah packages available", @"1:30pm-2:00 pm: Friday,Jumah prayer", @"All prayers 5 times/day Eid prayers ( more than 2000 attend ) Jumua Prayers ( around 200 attend) Weekend School to teach Arabic & culture Arabic for Adults Classes on Saturdays Qura'n Classes for new Muslims", @"open for all prayers each day. Juma Prayer services start at 1:30pm each Friday. A part-time school has been operating since 1993 for children of all ages Friday evenings 7:00 to 9:30pm . A fulltime school with classes from Pre K3 through Grade 8 has been open since 2000. The school times are 8am to 3pm. A Hifz program also runs fulltime at the masjid Monday through Friday after school. The Masjid hosts a Family Night Dinner with a guest speaker each last saturday of the month. For more information see www.ifsf.net", @"Masjid & Islamic School", @"1:30pm-2:30pm: Friday,Jummah,Congregational Pray",@"Mosque and Islamic Center",@"MASJID IS NOW OPEN FOR 5 TIMES DAILY SALAAT AT THE NEW PERMANENT LOCATION",nil];
     }
-    nameOfBusness_ = [[NSArray alloc] initWithObjects:@"Islamic Center of Boca Raton", @"Airlink Tours and Travel", @"West Palm Beach Masjid", @"Pompano Masjid", @"Islamic Center of South Florida", @"Islamic Center of Broward", @"Masjid Tawhid", @"Masjid Al Iman",@"Masjid Jamaat Al Mumineen", nil];
-    typeOfBusiness_ = [[NSArray alloc] initWithObjects:@"Masjid", @"business", @"Masjid",@"Masjid", @"Masjid", @"Masjid", @"Masjid", @"Masjid", @"Masjid",nil];
-    addressList_ = [[NSArray alloc] initWithObjects:@"3100 NW 5th Avenue, Boca Raton, FL 33431", @"123 NW 13th St., Boca Raton, FL 33432", @"4893 Purdy Lane, West Palm Beach, FL 33415", @"507 Ne 6th St, Pompano Beach, FL 33060",@"5457 NW 108th Ave, Fort Lauderdale, FL 33351, USA", @"8658 NW 44th ST, Fort Lauderdale, FL 33351, USA", @"1557 NW5th St, Fort Lauderdale, FL 33311, USA", @"2542 Franklin Park Drive, Fort Lauderdale, FL 33311, USA", @"3222 Holiday Springs Blvd. Margate, FL 33063, USA", nil];
-    briefDescription_ = [[NSArray alloc] initWithObjects:@"The Islamic Center of Boca Raton consists of a Masjid and a fulltime Islamic School (Garden of the Sahaba Academy). ICBR offers daily lectures after Maghrib prayer, and a wide host of Social Activities, as well as other services. We strive our utmost to keep all of such activities grounded in and conducted according to the Quran and Sunnah, with strict attention given to avoiding any innovations", @"Local travel agency with Hajj and Umrah packages available", @"1:30pm-2:00 pm: Friday,Jumah prayer", @"All prayers 5 times/day Eid prayers ( more than 2000 attend ) Jumua Prayers ( around 200 attend) Weekend School to teach Arabic & culture Arabic for Adults Classes on Saturdays Qura'n Classes for new Muslims", @"open for all prayers each day. Juma Prayer services start at 1:30pm each Friday. A part-time school has been operating since 1993 for children of all ages Friday evenings 7:00 to 9:30pm . A fulltime school with classes from Pre K3 through Grade 8 has been open since 2000. The school times are 8am to 3pm. A Hifz program also runs fulltime at the masjid Monday through Friday after school. The Masjid hosts a Family Night Dinner with a guest speaker each last saturday of the month. For more information see www.ifsf.net", @"Masjid & Islamic School", @"1:30pm-2:30pm: Friday,Jummah,Congregational Pray",@"Mosque and Islamic Center",@"MASJID IS NOW OPEN FOR 5 TIMES DAILY SALAAT AT THE NEW PERMANENT LOCATION",nil];
 
     return self;
 }
@@ -61,13 +61,6 @@
     [item release];
     
     [self.view addSubview: navigationBar_];    
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 -(void) viewDidAppear:(BOOL)animated

@@ -26,14 +26,35 @@
 		295F7B64136511B800D1CBB3 /* POIDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 295F7B62136511B800D1CBB3 /* POIDetailsViewController.m */; };
 		295F7B65136511B800D1CBB3 /* POIDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 295F7B63136511B800D1CBB3 /* POIDetailsViewController.xib */; };
 		296F9C5C1343B47700799213 /* DailyPrayerTimes.m in Sources */ = {isa = PBXBuildFile; fileRef = 296F9C5B1343B47700799213 /* DailyPrayerTimes.m */; };
-		297B63061353FF46003214BB /* zipcode.db in Resources */ = {isa = PBXBuildFile; fileRef = 297B63051353FF46003214BB /* zipcode.db */; };
 		297B63421354A758003214BB /* ValidateLocationRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 297B63411354A758003214BB /* ValidateLocationRequest.m */; };
+		29816E7F141FD34D0080AE5B /* LecturesDetailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29816E7D141FD34C0080AE5B /* LecturesDetailedViewController.m */; };
+		29816E80141FD34D0080AE5B /* LecturesDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29816E7E141FD34C0080AE5B /* LecturesDetailedViewController.xib */; };
+		2988687614AFF2DB00962481 /* twitter.png in Resources */ = {isa = PBXBuildFile; fileRef = 2988687514AFF2DB00962481 /* twitter.png */; };
+		2988687B14AFF4E900962481 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2988687914AFF4E900962481 /* WebViewController.m */; };
+		2988687C14AFF4E900962481 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2988687A14AFF4E900962481 /* WebViewController.xib */; };
+		2988687E14AFFB7600962481 /* 11-clock.png in Resources */ = {isa = PBXBuildFile; fileRef = 2988687D14AFFB7600962481 /* 11-clock.png */; };
+		2988688014AFFB8B00962481 /* 07-map-marker.png in Resources */ = {isa = PBXBuildFile; fileRef = 2988687F14AFFB8B00962481 /* 07-map-marker.png */; };
+		2988688214AFFBA900962481 /* 19-gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 2988688114AFFBA900962481 /* 19-gear.png */; };
+		2988688414AFFBB800962481 /* 23-bird.png in Resources */ = {isa = PBXBuildFile; fileRef = 2988688314AFFBB800962481 /* 23-bird.png */; };
+		2988688614AFFC0500962481 /* 66-microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2988688514AFFC0500962481 /* 66-microphone.png */; };
+		2988688814AFFC1700962481 /* 71-compass.png in Resources */ = {isa = PBXBuildFile; fileRef = 2988688714AFFC1700962481 /* 71-compass.png */; };
+		2988688A14AFFC2E00962481 /* 83-calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = 2988688914AFFC2E00962481 /* 83-calendar.png */; };
+		2988689614B00FCA00962481 /* AzanIqamaTimes2012-1.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2988689514B00FCA00962481 /* AzanIqamaTimes2012-1.txt */; };
+		2988689814B0CDA800962481 /* settings2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2988689714B0CDA700962481 /* settings2.plist */; };
 		298935DE1361222C00BC4706 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 298935D81361222C00BC4706 /* background.png */; };
 		298935E11361222C00BC4706 /* ICBR iphone app6 Background HD.png in Resources */ = {isa = PBXBuildFile; fileRef = 298935DB1361222C00BC4706 /* ICBR iphone app6 Background HD.png */; };
-		298935E21361222C00BC4706 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 298935DC1361222C00BC4706 /* icon.png */; };
-		298935E31361222C00BC4706 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 298935DD1361222C00BC4706 /* icon@2x.png */; };
-		2998626F13A1B9F1004F0A18 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2998627113A1B9F1004F0A18 /* Default.png */; };
-		2998627213A1B9F9004F0A18 /* IslamicCenterOfBocaRaton-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 29310C5A1334508700F89CC2 /* IslamicCenterOfBocaRaton-Info.plist */; };
+		298935E21361222C00BC4706 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 298935DC1361222C00BC4706 /* Icon.png */; };
+		298935E31361222C00BC4706 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 298935DD1361222C00BC4706 /* Icon@2x.png */; };
+		29958D8A146714E200E5E29D /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 29958D7F146714E200E5E29D /* NSObject+SBJSON.m */; };
+		29958D8B146714E200E5E29D /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 29958D81146714E200E5E29D /* NSString+SBJSON.m */; };
+		29958D8C146714E200E5E29D /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 29958D83146714E200E5E29D /* SBJSON.m */; };
+		29958D8D146714E200E5E29D /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 29958D85146714E200E5E29D /* SBJsonBase.m */; };
+		29958D8E146714E200E5E29D /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 29958D87146714E200E5E29D /* SBJsonParser.m */; };
+		29958D8F146714E200E5E29D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29958D89146714E200E5E29D /* SBJsonWriter.m */; };
+		29958D92146715A400E5E29D /* Tweet.m in Sources */ = {isa = PBXBuildFile; fileRef = 29958D91146715A400E5E29D /* Tweet.m */; };
+		29958D951467169000E5E29D /* JSONDataFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 29958D941467169000E5E29D /* JSONDataFetcher.m */; };
+		29958D991467FD0E00E5E29D /* UpcomingActivitiesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29958D971467FD0E00E5E29D /* UpcomingActivitiesViewController.m */; };
+		29958D9A1467FD0E00E5E29D /* UpcomingActivitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29958D981467FD0E00E5E29D /* UpcomingActivitiesViewController.xib */; };
 		299A7935134D3F0000C997C4 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299A7934134D3F0000C997C4 /* MapKit.framework */; };
 		299A7939134DE58B00C997C4 /* AdresssAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 299A7938134DE58B00C997C4 /* AdresssAnnotation.m */; };
 		299A793B134E0CB400C997C4 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 299A793A134E0CB400C997C4 /* CoreLocation.framework */; };
@@ -46,6 +67,16 @@
 		29A09A8B1377713C00117A62 /* IqamaTimes2011.txt in Resources */ = {isa = PBXBuildFile; fileRef = 29A09A8A1377713C00117A62 /* IqamaTimes2011.txt */; };
 		29A5779413466234008BB0C8 /* DailyPrayerScrollerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29A5779213466234008BB0C8 /* DailyPrayerScrollerViewController.m */; };
 		29A5779513466234008BB0C8 /* DailyPrayerScrollerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29A5779313466234008BB0C8 /* DailyPrayerScrollerViewController.xib */; };
+		29BCF9241722CA8A00D88797 /* AzanandIqamaTimes2013.txt in Resources */ = {isa = PBXBuildFile; fileRef = 29BCF9231722CA8A00D88797 /* AzanandIqamaTimes2013.txt */; };
+		29BCF9261722D17A00D88797 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29BCF9251722D17A00D88797 /* Default-568h@2x.png */; };
+		29BCF9291722D1BD00D88797 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 29BCF9271722D1BD00D88797 /* Default@2x.png */; };
+		29BCF92A1722D1BD00D88797 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 29BCF9281722D1BD00D88797 /* Default.png */; };
+		29BF302213A58291001CB30A /* AdvancedSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF302013A58291001CB30A /* AdvancedSettingsViewController.m */; };
+		29BF302313A58291001CB30A /* AdvancedSettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BF302113A58291001CB30A /* AdvancedSettingsViewController.xib */; };
+		29BF304813A6FCE4001CB30A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29BF304713A6FCE4001CB30A /* AVFoundation.framework */; };
+		29BF885C140EB682003AE797 /* LecturesRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF885A140EB682003AE797 /* LecturesRootViewController.m */; };
+		29BF885D140EB682003AE797 /* LecturesRootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29BF885B140EB682003AE797 /* LecturesRootViewController.xib */; };
+		29BF8872140EC5BA003AE797 /* LectureData.m in Sources */ = {isa = PBXBuildFile; fileRef = 29BF8871140EC5BA003AE797 /* LectureData.m */; };
 		29C9A82D134914EA00769612 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C9A82B134914EA00769612 /* SettingsViewController.m */; };
 		29C9A82E134914EA00769612 /* SettingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29C9A82C134914EA00769612 /* SettingsViewController.xib */; };
 		29C9A832134A5FCA00769612 /* ICBRImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 29C9A831134A5FCA00769612 /* ICBRImages.m */; };
@@ -55,6 +86,10 @@
 		29C9A83C134AA67E00769612 /* ICBRImageScrollViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 29C9A83A134AA67E00769612 /* ICBRImageScrollViewController.xib */; };
 		29D781D71395611800A9D5FF /* Upcoming Activities and Pictures.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D781D61395611800A9D5FF /* Upcoming Activities and Pictures.png */; };
 		29D781DA1395612400A9D5FF /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 29D781D91395612400A9D5FF /* Settings.png */; };
+		29E1FE7714204D9E00579928 /* home_1_04.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 29E1FE7614204D9E00579928 /* home_1_04.jpg */; };
+		29E1FE8B1420ED0700579928 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29E1FE8A1420ED0700579928 /* MediaPlayer.framework */; };
+		29E1FE8D1421375300579928 /* icbr_lectures.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E1FE8C1421375300579928 /* icbr_lectures.png */; };
+		29E1FE8F1426B83F00579928 /* icbrlectures.png in Resources */ = {isa = PBXBuildFile; fileRef = 29E1FE8E1426B83F00579928 /* icbrlectures.png */; };
 		29EAA90B1351CF9700EC0F25 /* PlistReaderWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 29EAA90A1351CF9700EC0F25 /* PlistReaderWriter.m */; };
 		29EAA91113528A9F00EC0F25 /* madinah.caf in Resources */ = {isa = PBXBuildFile; fileRef = 29EAA90D13528A9F00EC0F25 /* madinah.caf */; };
 		29EAA91213528A9F00EC0F25 /* makkah.caf in Resources */ = {isa = PBXBuildFile; fileRef = 29EAA90E13528A9F00EC0F25 /* makkah.caf */; };
@@ -67,7 +102,6 @@
 		29032662133EDD780035DA96 /* IFPrayerTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IFPrayerTimes.h; sourceTree = "<group>"; };
 		29032663133EDD780035DA96 /* IFPrayerTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IFPrayerTimes.m; sourceTree = "<group>"; };
 		2903266E134017140035DA96 /* photo1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = photo1.jpg; sourceTree = "<group>"; };
-		29310C4E1334508700F89CC2 /* IslamicCenterOfBocaRaton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IslamicCenterOfBocaRaton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		29310C521334508700F89CC2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		29310C541334508700F89CC2 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		29310C561334508700F89CC2 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -93,14 +127,49 @@
 		295F7B63136511B800D1CBB3 /* POIDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = POIDetailsViewController.xib; sourceTree = "<group>"; };
 		296F9C5A1343B47700799213 /* DailyPrayerTimes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DailyPrayerTimes.h; sourceTree = "<group>"; };
 		296F9C5B1343B47700799213 /* DailyPrayerTimes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DailyPrayerTimes.m; sourceTree = "<group>"; };
-		297B63051353FF46003214BB /* zipcode.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = zipcode.db; sourceTree = "<group>"; };
+		297AF47C143A1BF700FB8147 /* IslamicCenterOfBocaRaton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IslamicCenterOfBocaRaton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		297B63401354A758003214BB /* ValidateLocationRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ValidateLocationRequest.h; sourceTree = "<group>"; };
 		297B63411354A758003214BB /* ValidateLocationRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ValidateLocationRequest.m; sourceTree = "<group>"; };
+		29816E7C141FD34B0080AE5B /* LecturesDetailedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LecturesDetailedViewController.h; sourceTree = "<group>"; };
+		29816E7D141FD34C0080AE5B /* LecturesDetailedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LecturesDetailedViewController.m; sourceTree = "<group>"; };
+		29816E7E141FD34C0080AE5B /* LecturesDetailedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LecturesDetailedViewController.xib; sourceTree = "<group>"; };
+		2988687514AFF2DB00962481 /* twitter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter.png; sourceTree = "<group>"; };
+		2988687814AFF4E900962481 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		2988687914AFF4E900962481 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		2988687A14AFF4E900962481 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		2988687D14AFFB7600962481 /* 11-clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11-clock.png"; sourceTree = "<group>"; };
+		2988687F14AFFB8B00962481 /* 07-map-marker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "07-map-marker.png"; sourceTree = "<group>"; };
+		2988688114AFFBA900962481 /* 19-gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "19-gear.png"; sourceTree = "<group>"; };
+		2988688314AFFBB800962481 /* 23-bird.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "23-bird.png"; sourceTree = "<group>"; };
+		2988688514AFFC0500962481 /* 66-microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "66-microphone.png"; sourceTree = "<group>"; };
+		2988688714AFFC1700962481 /* 71-compass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "71-compass.png"; sourceTree = "<group>"; };
+		2988688914AFFC2E00962481 /* 83-calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "83-calendar.png"; sourceTree = "<group>"; };
+		2988689514B00FCA00962481 /* AzanIqamaTimes2012-1.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "AzanIqamaTimes2012-1.txt"; sourceTree = "<group>"; };
+		2988689714B0CDA700962481 /* settings2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings2.plist; sourceTree = "<group>"; };
 		298935D81361222C00BC4706 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		298935DB1361222C00BC4706 /* ICBR iphone app6 Background HD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICBR iphone app6 Background HD.png"; sourceTree = "<group>"; };
-		298935DC1361222C00BC4706 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
-		298935DD1361222C00BC4706 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
-		2998627013A1B9F1004F0A18 /* en */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = en; path = en.lproj/Default.png; sourceTree = "<group>"; };
+		298935DC1361222C00BC4706 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		298935DD1361222C00BC4706 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		29958D7D146714E200E5E29D /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		29958D7E146714E200E5E29D /* NSObject+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJSON.h"; sourceTree = "<group>"; };
+		29958D7F146714E200E5E29D /* NSObject+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJSON.m"; sourceTree = "<group>"; };
+		29958D80146714E200E5E29D /* NSString+SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+SBJSON.h"; sourceTree = "<group>"; };
+		29958D81146714E200E5E29D /* NSString+SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+SBJSON.m"; sourceTree = "<group>"; };
+		29958D82146714E200E5E29D /* SBJSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJSON.h; sourceTree = "<group>"; };
+		29958D83146714E200E5E29D /* SBJSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJSON.m; sourceTree = "<group>"; };
+		29958D84146714E200E5E29D /* SBJsonBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonBase.h; sourceTree = "<group>"; };
+		29958D85146714E200E5E29D /* SBJsonBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonBase.m; sourceTree = "<group>"; };
+		29958D86146714E200E5E29D /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		29958D87146714E200E5E29D /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		29958D88146714E200E5E29D /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		29958D89146714E200E5E29D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		29958D90146715A400E5E29D /* Tweet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tweet.h; sourceTree = "<group>"; };
+		29958D91146715A400E5E29D /* Tweet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tweet.m; sourceTree = "<group>"; };
+		29958D931467168F00E5E29D /* JSONDataFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONDataFetcher.h; sourceTree = "<group>"; };
+		29958D941467169000E5E29D /* JSONDataFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONDataFetcher.m; sourceTree = "<group>"; };
+		29958D961467FD0E00E5E29D /* UpcomingActivitiesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpcomingActivitiesViewController.h; sourceTree = "<group>"; };
+		29958D971467FD0E00E5E29D /* UpcomingActivitiesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpcomingActivitiesViewController.m; sourceTree = "<group>"; };
+		29958D981467FD0E00E5E29D /* UpcomingActivitiesViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UpcomingActivitiesViewController.xib; sourceTree = "<group>"; };
 		299A7934134D3F0000C997C4 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		299A7937134DE58B00C997C4 /* AdresssAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdresssAnnotation.h; sourceTree = "<group>"; };
 		299A7938134DE58B00C997C4 /* AdresssAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdresssAnnotation.m; sourceTree = "<group>"; };
@@ -115,6 +184,19 @@
 		29A5779113466234008BB0C8 /* DailyPrayerScrollerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DailyPrayerScrollerViewController.h; path = IslamicCenterOfBocaRaton.xcodeproj/DailyPrayerScrollerViewController.h; sourceTree = SOURCE_ROOT; };
 		29A5779213466234008BB0C8 /* DailyPrayerScrollerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DailyPrayerScrollerViewController.m; path = IslamicCenterOfBocaRaton.xcodeproj/DailyPrayerScrollerViewController.m; sourceTree = SOURCE_ROOT; };
 		29A5779313466234008BB0C8 /* DailyPrayerScrollerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DailyPrayerScrollerViewController.xib; path = IslamicCenterOfBocaRaton.xcodeproj/DailyPrayerScrollerViewController.xib; sourceTree = SOURCE_ROOT; };
+		29BCF9231722CA8A00D88797 /* AzanandIqamaTimes2013.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = AzanandIqamaTimes2013.txt; sourceTree = "<group>"; };
+		29BCF9251722D17A00D88797 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		29BCF9271722D1BD00D88797 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		29BCF9281722D1BD00D88797 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		29BF301F13A58291001CB30A /* AdvancedSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AdvancedSettingsViewController.h; sourceTree = "<group>"; };
+		29BF302013A58291001CB30A /* AdvancedSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdvancedSettingsViewController.m; sourceTree = "<group>"; };
+		29BF302113A58291001CB30A /* AdvancedSettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdvancedSettingsViewController.xib; sourceTree = "<group>"; };
+		29BF304713A6FCE4001CB30A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		29BF8859140EB682003AE797 /* LecturesRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LecturesRootViewController.h; sourceTree = "<group>"; };
+		29BF885A140EB682003AE797 /* LecturesRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LecturesRootViewController.m; sourceTree = "<group>"; };
+		29BF885B140EB682003AE797 /* LecturesRootViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LecturesRootViewController.xib; sourceTree = "<group>"; };
+		29BF8870140EC5BA003AE797 /* LectureData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LectureData.h; sourceTree = "<group>"; };
+		29BF8871140EC5BA003AE797 /* LectureData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LectureData.m; sourceTree = "<group>"; };
 		29C9A82A134914EA00769612 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		29C9A82B134914EA00769612 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		29C9A82C134914EA00769612 /* SettingsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsViewController.xib; sourceTree = "<group>"; };
@@ -128,6 +210,10 @@
 		29C9A83A134AA67E00769612 /* ICBRImageScrollViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ICBRImageScrollViewController.xib; sourceTree = "<group>"; };
 		29D781D61395611800A9D5FF /* Upcoming Activities and Pictures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Upcoming Activities and Pictures.png"; sourceTree = "<group>"; };
 		29D781D91395612400A9D5FF /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Settings.png; sourceTree = "<group>"; };
+		29E1FE7614204D9E00579928 /* home_1_04.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = home_1_04.jpg; sourceTree = "<group>"; };
+		29E1FE8A1420ED0700579928 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		29E1FE8C1421375300579928 /* icbr_lectures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icbr_lectures.png; sourceTree = "<group>"; };
+		29E1FE8E1426B83F00579928 /* icbrlectures.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icbrlectures.png; sourceTree = "<group>"; };
 		29EAA9091351CF9700EC0F25 /* PlistReaderWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlistReaderWriter.h; sourceTree = "<group>"; };
 		29EAA90A1351CF9700EC0F25 /* PlistReaderWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlistReaderWriter.m; sourceTree = "<group>"; };
 		29EAA90D13528A9F00EC0F25 /* madinah.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = madinah.caf; sourceTree = "<group>"; };
@@ -142,6 +228,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29E1FE8B1420ED0700579928 /* MediaPlayer.framework in Frameworks */,
+				29BF304813A6FCE4001CB30A /* AVFoundation.framework in Frameworks */,
 				299A793B134E0CB400C997C4 /* CoreLocation.framework in Frameworks */,
 				299A7935134D3F0000C997C4 /* MapKit.framework in Frameworks */,
 				2931CE651344FCE400DD1FF6 /* libsqlite3.dylib in Frameworks */,
@@ -157,11 +245,13 @@
 		29310C431334508700F89CC2 = {
 			isa = PBXGroup;
 			children = (
+				29BCF9251722D17A00D88797 /* Default-568h@2x.png */,
+				29E1FE8A1420ED0700579928 /* MediaPlayer.framework */,
+				29BF304713A6FCE4001CB30A /* AVFoundation.framework */,
 				299A793A134E0CB400C997C4 /* CoreLocation.framework */,
 				299A7934134D3F0000C997C4 /* MapKit.framework */,
 				2931CE641344FCE400DD1FF6 /* libsqlite3.dylib */,
 				2931CE611344FCCA00DD1FF6 /* libsqlite3.0.dylib */,
-				2998627113A1B9F1004F0A18 /* Default.png */,
 				29310C581334508700F89CC2 /* IslamicCenterOfBocaRaton */,
 				29310C511334508700F89CC2 /* Frameworks */,
 				29310C4F1334508700F89CC2 /* Products */,
@@ -171,7 +261,7 @@
 		29310C4F1334508700F89CC2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				29310C4E1334508700F89CC2 /* IslamicCenterOfBocaRaton.app */,
+				297AF47C143A1BF700FB8147 /* IslamicCenterOfBocaRaton.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,6 +279,7 @@
 		29310C581334508700F89CC2 /* IslamicCenterOfBocaRaton */ = {
 			isa = PBXGroup;
 			children = (
+				29958D7B146714A300E5E29D /* JSON */,
 				29310C7C1334512E00F89CC2 /* Model */,
 				29310C6C1334509F00F89CC2 /* ViewControllers */,
 				29310C611334508700F89CC2 /* IslamicCenterOfBocaRatonAppDelegate.h */,
@@ -202,20 +293,35 @@
 		29310C591334508700F89CC2 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				29BCF9271722D1BD00D88797 /* Default@2x.png */,
+				29BCF9281722D1BD00D88797 /* Default.png */,
+				29BCF9231722CA8A00D88797 /* AzanandIqamaTimes2013.txt */,
+				2988689714B0CDA700962481 /* settings2.plist */,
+				2988689514B00FCA00962481 /* AzanIqamaTimes2012-1.txt */,
+				2988688914AFFC2E00962481 /* 83-calendar.png */,
+				2988688714AFFC1700962481 /* 71-compass.png */,
+				2988688514AFFC0500962481 /* 66-microphone.png */,
+				2988688314AFFBB800962481 /* 23-bird.png */,
+				2988688114AFFBA900962481 /* 19-gear.png */,
+				2988687F14AFFB8B00962481 /* 07-map-marker.png */,
+				2988687D14AFFB7600962481 /* 11-clock.png */,
+				2988687514AFF2DB00962481 /* twitter.png */,
+				29E1FE8E1426B83F00579928 /* icbrlectures.png */,
+				29E1FE8C1421375300579928 /* icbr_lectures.png */,
 				29D781D91395612400A9D5FF /* Settings.png */,
 				29D781D61395611800A9D5FF /* Upcoming Activities and Pictures.png */,
 				29A09A8A1377713C00117A62 /* IqamaTimes2011.txt */,
 				29A09A81137639F300117A62 /* ICBR Setting.png */,
 				29A09A82137639F300117A62 /* Pictures Gallery.png */,
+				29E1FE7614204D9E00579928 /* home_1_04.jpg */,
 				29A09A83137639F300117A62 /* Points of interest .png */,
 				29A09A84137639F300117A62 /* Prayer Times.png */,
 				295F7B57136261BD00D1CBB3 /* player-play.png */,
 				295F7B531361BCF200D1CBB3 /* LowBackGround.png */,
 				298935D81361222C00BC4706 /* background.png */,
 				298935DB1361222C00BC4706 /* ICBR iphone app6 Background HD.png */,
-				298935DC1361222C00BC4706 /* icon.png */,
-				298935DD1361222C00BC4706 /* icon@2x.png */,
-				297B63051353FF46003214BB /* zipcode.db */,
+				298935DC1361222C00BC4706 /* Icon.png */,
+				298935DD1361222C00BC4706 /* Icon@2x.png */,
 				29EAA90D13528A9F00EC0F25 /* madinah.caf */,
 				29EAA90E13528A9F00EC0F25 /* makkah.caf */,
 				29EAA90F13528A9F00EC0F25 /* yusuf.caf */,
@@ -256,6 +362,21 @@
 				29C9A838134AA67E00769612 /* ICBRImageScrollViewController.h */,
 				29C9A839134AA67E00769612 /* ICBRImageScrollViewController.m */,
 				29C9A83A134AA67E00769612 /* ICBRImageScrollViewController.xib */,
+				29BF301F13A58291001CB30A /* AdvancedSettingsViewController.h */,
+				29BF302013A58291001CB30A /* AdvancedSettingsViewController.m */,
+				29BF302113A58291001CB30A /* AdvancedSettingsViewController.xib */,
+				29BF8859140EB682003AE797 /* LecturesRootViewController.h */,
+				29BF885A140EB682003AE797 /* LecturesRootViewController.m */,
+				29BF885B140EB682003AE797 /* LecturesRootViewController.xib */,
+				29816E7C141FD34B0080AE5B /* LecturesDetailedViewController.h */,
+				29816E7D141FD34C0080AE5B /* LecturesDetailedViewController.m */,
+				29816E7E141FD34C0080AE5B /* LecturesDetailedViewController.xib */,
+				29958D961467FD0E00E5E29D /* UpcomingActivitiesViewController.h */,
+				29958D971467FD0E00E5E29D /* UpcomingActivitiesViewController.m */,
+				29958D981467FD0E00E5E29D /* UpcomingActivitiesViewController.xib */,
+				2988687814AFF4E900962481 /* WebViewController.h */,
+				2988687914AFF4E900962481 /* WebViewController.m */,
+				2988687A14AFF4E900962481 /* WebViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -263,6 +384,8 @@
 		29310C7C1334512E00F89CC2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				29958D90146715A400E5E29D /* Tweet.h */,
+				29958D91146715A400E5E29D /* Tweet.m */,
 				29032662133EDD780035DA96 /* IFPrayerTimes.h */,
 				29032663133EDD780035DA96 /* IFPrayerTimes.m */,
 				296F9C5A1343B47700799213 /* DailyPrayerTimes.h */,
@@ -275,8 +398,32 @@
 				29EAA90A1351CF9700EC0F25 /* PlistReaderWriter.m */,
 				297B63401354A758003214BB /* ValidateLocationRequest.h */,
 				297B63411354A758003214BB /* ValidateLocationRequest.m */,
+				29BF8870140EC5BA003AE797 /* LectureData.h */,
+				29BF8871140EC5BA003AE797 /* LectureData.m */,
+				29958D931467168F00E5E29D /* JSONDataFetcher.h */,
+				29958D941467169000E5E29D /* JSONDataFetcher.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		29958D7B146714A300E5E29D /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				29958D7D146714E200E5E29D /* JSON.h */,
+				29958D7E146714E200E5E29D /* NSObject+SBJSON.h */,
+				29958D7F146714E200E5E29D /* NSObject+SBJSON.m */,
+				29958D80146714E200E5E29D /* NSString+SBJSON.h */,
+				29958D81146714E200E5E29D /* NSString+SBJSON.m */,
+				29958D82146714E200E5E29D /* SBJSON.h */,
+				29958D83146714E200E5E29D /* SBJSON.m */,
+				29958D84146714E200E5E29D /* SBJsonBase.h */,
+				29958D85146714E200E5E29D /* SBJsonBase.m */,
+				29958D86146714E200E5E29D /* SBJsonParser.h */,
+				29958D87146714E200E5E29D /* SBJsonParser.m */,
+				29958D88146714E200E5E29D /* SBJsonWriter.h */,
+				29958D89146714E200E5E29D /* SBJsonWriter.m */,
+			);
+			name = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -296,7 +443,7 @@
 			);
 			name = IslamicCenterOfBocaRaton;
 			productName = IslamicCenterOfBocaRaton;
-			productReference = 29310C4E1334508700F89CC2 /* IslamicCenterOfBocaRaton.app */;
+			productReference = 297AF47C143A1BF700FB8147 /* IslamicCenterOfBocaRaton.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -345,11 +492,10 @@
 				29EAA91213528A9F00EC0F25 /* makkah.caf in Resources */,
 				29EAA91313528A9F00EC0F25 /* yusuf.caf in Resources */,
 				29EAA91413528A9F00EC0F25 /* bird.caf in Resources */,
-				297B63061353FF46003214BB /* zipcode.db in Resources */,
 				298935DE1361222C00BC4706 /* background.png in Resources */,
 				298935E11361222C00BC4706 /* ICBR iphone app6 Background HD.png in Resources */,
-				298935E21361222C00BC4706 /* icon.png in Resources */,
-				298935E31361222C00BC4706 /* icon@2x.png in Resources */,
+				298935E21361222C00BC4706 /* Icon.png in Resources */,
+				298935E31361222C00BC4706 /* Icon@2x.png in Resources */,
 				295F7B551361BCF200D1CBB3 /* LowBackGround.png in Resources */,
 				295F7B58136261BD00D1CBB3 /* player-play.png in Resources */,
 				295F7B65136511B800D1CBB3 /* POIDetailsViewController.xib in Resources */,
@@ -360,8 +506,28 @@
 				29A09A8B1377713C00117A62 /* IqamaTimes2011.txt in Resources */,
 				29D781D71395611800A9D5FF /* Upcoming Activities and Pictures.png in Resources */,
 				29D781DA1395612400A9D5FF /* Settings.png in Resources */,
-				2998626F13A1B9F1004F0A18 /* Default.png in Resources */,
-				2998627213A1B9F9004F0A18 /* IslamicCenterOfBocaRaton-Info.plist in Resources */,
+				29BF302313A58291001CB30A /* AdvancedSettingsViewController.xib in Resources */,
+				29BF885D140EB682003AE797 /* LecturesRootViewController.xib in Resources */,
+				29816E80141FD34D0080AE5B /* LecturesDetailedViewController.xib in Resources */,
+				29E1FE7714204D9E00579928 /* home_1_04.jpg in Resources */,
+				29E1FE8D1421375300579928 /* icbr_lectures.png in Resources */,
+				29E1FE8F1426B83F00579928 /* icbrlectures.png in Resources */,
+				29958D9A1467FD0E00E5E29D /* UpcomingActivitiesViewController.xib in Resources */,
+				2988687614AFF2DB00962481 /* twitter.png in Resources */,
+				2988687C14AFF4E900962481 /* WebViewController.xib in Resources */,
+				2988687E14AFFB7600962481 /* 11-clock.png in Resources */,
+				2988688014AFFB8B00962481 /* 07-map-marker.png in Resources */,
+				2988688214AFFBA900962481 /* 19-gear.png in Resources */,
+				2988688414AFFBB800962481 /* 23-bird.png in Resources */,
+				2988688614AFFC0500962481 /* 66-microphone.png in Resources */,
+				2988688814AFFC1700962481 /* 71-compass.png in Resources */,
+				2988688A14AFFC2E00962481 /* 83-calendar.png in Resources */,
+				2988689614B00FCA00962481 /* AzanIqamaTimes2012-1.txt in Resources */,
+				2988689814B0CDA800962481 /* settings2.plist in Resources */,
+				29BCF9241722CA8A00D88797 /* AzanandIqamaTimes2013.txt in Resources */,
+				29BCF9261722D17A00D88797 /* Default-568h@2x.png in Resources */,
+				29BCF9291722D1BD00D88797 /* Default@2x.png in Resources */,
+				29BCF92A1722D1BD00D88797 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,6 +553,20 @@
 				29EAA90B1351CF9700EC0F25 /* PlistReaderWriter.m in Sources */,
 				297B63421354A758003214BB /* ValidateLocationRequest.m in Sources */,
 				295F7B64136511B800D1CBB3 /* POIDetailsViewController.m in Sources */,
+				29BF302213A58291001CB30A /* AdvancedSettingsViewController.m in Sources */,
+				29BF885C140EB682003AE797 /* LecturesRootViewController.m in Sources */,
+				29BF8872140EC5BA003AE797 /* LectureData.m in Sources */,
+				29816E7F141FD34D0080AE5B /* LecturesDetailedViewController.m in Sources */,
+				29958D8A146714E200E5E29D /* NSObject+SBJSON.m in Sources */,
+				29958D8B146714E200E5E29D /* NSString+SBJSON.m in Sources */,
+				29958D8C146714E200E5E29D /* SBJSON.m in Sources */,
+				29958D8D146714E200E5E29D /* SBJsonBase.m in Sources */,
+				29958D8E146714E200E5E29D /* SBJsonParser.m in Sources */,
+				29958D8F146714E200E5E29D /* SBJsonWriter.m in Sources */,
+				29958D92146715A400E5E29D /* Tweet.m in Sources */,
+				29958D951467169000E5E29D /* JSONDataFetcher.m in Sources */,
+				29958D991467FD0E00E5E29D /* UpcomingActivitiesViewController.m in Sources */,
+				2988687B14AFF4E900962481 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,14 +589,6 @@
 			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
-		2998627113A1B9F1004F0A18 /* Default.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2998627013A1B9F1004F0A18 /* en */,
-			);
-			name = Default.png;
-			sourceTree = "<group>";
-		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -424,8 +596,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
@@ -433,7 +605,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -444,13 +616,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.2;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -462,16 +634,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hashim SHAFIQUE";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hashim SHAFIQUE";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IslamicCenterOfBocaRaton/IslamicCenterOfBocaRaton-Prefix.pch";
 				INFOPLIST_FILE = "IslamicCenterOfBocaRaton/IslamicCenterOfBocaRaton-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "DBBD6C04-3628-4E20-ACFD-5C272D87E2A7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DBBD6C04-3628-4E20-ACFD-5C272D87E2A7";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -480,15 +657,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = (
+					armv6,
+					armv7,
+				);
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Hashim SHAFIQUE";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Hashim SHAFIQUE";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "IslamicCenterOfBocaRaton/IslamicCenterOfBocaRaton-Prefix.pch";
 				INFOPLIST_FILE = "IslamicCenterOfBocaRaton/IslamicCenterOfBocaRaton-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "DBBD6C04-3628-4E20-ACFD-5C272D87E2A7";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DBBD6C04-3628-4E20-ACFD-5C272D87E2A7";
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};

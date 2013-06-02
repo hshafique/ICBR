@@ -21,7 +21,8 @@
     if (self) {
         UITabBarItem *tbi = [self tabBarItem];
         //[tbi setTitle:@"Points of Interest"];
-        [tbi setImage:[UIImage imageNamed:@"Points of interest .png"]];
+        [tbi setImage:[UIImage imageNamed:@"71-compass.png"]];
+        [tbi setTitle:@"Points of Interest"];
 
         addressList_ = [[NSArray alloc] initWithObjects:@"3100 NW 5th Avenue, Boca Raton, FL 33431", @"123 NW 13th St., Boca Raton, FL 33432", @"4893 Purdy Lane, West Palm Beach, FL 33415", @"507 Ne 6th St, Pompano Beach, FL 33060",@"5457 NW 108th Ave, Fort Lauderdale, FL 33351, USA", @"8658 NW 44th ST, Fort Lauderdale, FL 33351, USA", @"1557 NW5th St, Fort Lauderdale, FL 33311, USA", @"2542 Franklin Park Drive, Fort Lauderdale, FL 33311, USA", @"3222 Holiday Springs Blvd. Margate, FL 33063, USA", nil];
         
@@ -93,13 +94,6 @@
 	[temporaryBarButtonItem release];*/
 
     // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -192,9 +186,7 @@
 {
     NSLog(@"the tag value is: %d", [sender tag]);
     [detailsViewController_ setCurrentIndex:[sender tag]];
-    
-    [self presentModalViewController:self.detailsViewController animated:YES];
-    
+    [self presentViewController:self.detailsViewController animated:YES completion:nil];    
 }
 
 -(NSInteger)getTableIndexForPOI:(NSString*)POITitle
@@ -223,7 +215,7 @@
 
 - (void)removeDetailViewController
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

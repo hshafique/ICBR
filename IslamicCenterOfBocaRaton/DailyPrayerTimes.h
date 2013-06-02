@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 
 #define kFilename @"data.sqlite3"
-#define kZipCode @"zipcode.db"
 
 @interface DailyPrayerTimes : NSObject <NSXMLParserDelegate> {
     NSString *fajr_;
@@ -21,6 +20,7 @@
     NSString *month_;
     NSString *day_;
     NSString *year_;
+    NSString *hijriDate_;
     NSMutableString *value_;
     BOOL tableNeedsToBeUpdated_;
     
@@ -43,6 +43,7 @@
 @property (nonatomic, retain) NSString *month;
 @property (nonatomic, retain) NSString *day;
 @property (nonatomic, retain) NSString *year;
+@property (nonatomic, retain) NSString *hijriDate;
 @property(nonatomic, retain) NSString *ifStatus;
 
 -(BOOL) initDatabase;
@@ -53,5 +54,7 @@
 -(void) getIqamaRowFromDatabase:(NSString*)lMonth:(NSString*)lDay:(NSString*)lYear:(DailyPrayerTimes*)result;
 -(void)removePrayerTable;
 -(void) insertIqamaRowIntoDatabase;
+-(BOOL)update2012data;
+-(BOOL)update2013data;
 
 @end

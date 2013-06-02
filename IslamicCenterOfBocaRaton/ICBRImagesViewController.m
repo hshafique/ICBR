@@ -46,13 +46,17 @@
     [activityView_ startAnimating];
     [imageData_ loadImageData:pageNumber_];
     // Do any additional setup after loading the view from its nib.
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    NSString *urlAddress = [imageData_ getStringBasedOnPage:pageNumber_];
+    //NSString *urlAddress = @"http://hosted-p0.vresp.com/626586/9216464906/ARCHIVE";
+    //Create a URL object.
+    NSURL *url = [NSURL URLWithString:urlAddress];
+    
+    //URL Requst Object
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    
+    //Load the request in the UIWebView.
+    webView_.scalesPageToFit = YES;
+    [webView_ loadRequest:requestObj];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

@@ -7,14 +7,12 @@
 //
 
 #import "DailyPrayerTimes.h"
-#import "IFPrayerTimes.h"
 #import "PrayerTimesViewController.h"
 
 @implementation PrayerTimesViewController
 
 @synthesize activity = activity_;
 @synthesize dailyPrayerTimes = dailyPrayerTimes_;
-@synthesize dateData = dateData_;
 @synthesize currentDateInP = currentDateInP_;
 @synthesize atFajr = atFajr_;
 
@@ -23,12 +21,11 @@
     self = [super initWithNibName:@"PrayerTimesViewController" bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        dailyPrayerTimes_ = [[DailyPrayerTimes alloc] init];
+        currentDateInP_ = [[NSDate alloc] init];
+        athaanNames_ = [[NSArray alloc] initWithObjects:@"madinah.caf", @"makkah.caf", @"yusuf.caf", @"bird.caf", nil];
+        settingsData = [[PlistReaderWriter alloc] init];
     }
-    dailyPrayerTimes_ = [[DailyPrayerTimes alloc] init];
-    dateData_ = [[IFPrayerTimes alloc] init];
-    currentDateInP_ = [[NSDate alloc] init];
-    athaanNames_ = [[NSArray alloc] initWithObjects:@"madinah.caf", @"makkah.caf", @"yusuf.caf", @"bird.caf", nil];
-    settingsData = [[PlistReaderWriter alloc] init];
 
     return self;
 }
@@ -54,9 +51,23 @@
     formattedAddress_.text = @"Boca Raton, FL USA";
 
     [self.dailyPrayerTimes addObserver:self forKeyPath:@"ifStatus" options:NSKeyValueObservingOptionNew context:NULL];
-    [self.dateData addObserver:self forKeyPath:@"dateStatus" options:NSKeyValueObservingOptionNew context:NULL];
     
     [activity_ startAnimating];
+    iqFajr_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12]; 
+    atFajr_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12]; 
+    iqShurooq_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12]; 
+    atShurooq_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12]; 
+    iqDhohur_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    atDhohur_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    iqAsr_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    atAsr_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    iqMaghrib_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    atMaghrib_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    iqIsha_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    atIsha_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    iqJumaa_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+    jumaa_.font = [UIFont fontWithName:@"Arial-BoldMT" size:12];
+
     [self loadPrayerData];
     
     // Do any additional setup after loading the view from its nib.
@@ -73,22 +84,17 @@
     {
         [dailyPrayerTimes_ loadMonthlyAthanTimes];
     }
-    
-    // use the IFPrayerTimes instance to get the current hijri and calendar dates
-    // this lookup is only done to get the hijri and calendar dates
-    [dateData_ loadHijriAndGregorianDates];
-    
+    if ([settingsData is2013Updated] == NO)
+    {
+        // prayer time is not updated, lets load her up
+        if ([dailyPrayerTimes_ update2013data] == YES)
+            [settingsData set2013Updated:YES];
+    }
 }
+
 -(void) clearPrayerTable
 {
     [dailyPrayerTimes_ removePrayerTable];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -109,13 +115,7 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
-    if ([keyPath isEqualToString:@"dateStatus"])
-    {
-        NSLog(@"calendar date is received");
-        if (pageNumber_ == 0)
-            hijriDate_.text = [NSString stringWithString:[dateData_ hijriDate]];
-    }
-    else if ([keyPath isEqualToString:@"ifStatus"])
+    if ([keyPath isEqualToString:@"ifStatus"])
     {
         [self updateAthaanTimes];
 
@@ -137,6 +137,7 @@
         theTime = [theTime substringWithRange:NSMakeRange(1, [theTime length]-1)];  
         theTime = [theTime stringByAppendingFormat:@" pm"];
         iqMaghrib_.text = theTime;
+        [dateFormating release];
         
     }
 }
@@ -155,13 +156,13 @@
     NSInteger day = [components day];    
     NSInteger month = [components month];
     NSInteger year = [components year];   
-    NSString *dayStr = [NSString stringWithFormat:@"%d", day];    
-    NSString *monthStr = [NSString stringWithFormat:@"%d", month];
+    NSString *dayStr = [NSString stringWithFormat:@"%d", day]; 
+
     NSString *yearStr = [NSString stringWithFormat:@"%d", year];
     
-    NSLog(@"getting prayer time for %@ %@ %@", monthStr, dayStr, yearStr);
+    NSLog(@"getting prayer time for %@ %@ %@", [self convertMonthToString:month], dayStr, yearStr);
     
-    [result getRowFromDatabase:monthStr:dayStr:yearStr:result];
+    [result getRowFromDatabase:[self convertMonthToString:month]:dayStr:yearStr:result];
     if ([[result fajr] isEqual:@""])
     {
         [NSTimer scheduledTimerWithTimeInterval:20
@@ -169,14 +170,16 @@
                                    selector:@selector(updateAthaanTimes) 
                                    userInfo:nil 
                                     repeats:NO];
+        [gregorian release];
+        [result release];
         return;
     }
-    atFajr_.text= [result fajr];
-    atShurooq_.text = [result shurooq];
-    atDhohur_.text = [result dhohur];
-    atAsr_.text = [result asr];
-    atMaghrib_.text = [result maghrib];
-    atIsha_.text = [result isha];    
+    atFajr_.text= [NSString stringWithFormat:@"%@ am", [result fajr]];
+    atShurooq_.text = [NSString stringWithFormat:@"%@ am", [result shurooq]];
+    atDhohur_.text = [NSString stringWithFormat:@"%@ pm", [result dhohur]];
+    atAsr_.text = [NSString stringWithFormat:@"%@ pm", [result asr]];
+    atMaghrib_.text = [NSString stringWithFormat:@"%@ pm", [result maghrib]];
+    atIsha_.text = [NSString stringWithFormat:@"%@ pm", [result isha]];    
     jumaa_.text = @"1:15 pm";
     iqJumaa_.text = @"1:15 pm";
 
@@ -187,12 +190,22 @@
     iqAsr_.text = [result asr];
     iqIsha_.text = [result isha];    
     iqShurooq_.text = atShurooq_.text;
+    hijriDate_.text = [result hijriDate];
+    if ([settingsData getIqamaOverride])
+    {
+        iqFajr_.text = [settingsData getFajr];
+        iqDhohur_.text = [settingsData getDhohur];
+        iqAsr_.text = [settingsData getAsr];
+        iqIsha_.text = [settingsData getIsha];    
+    }
     
     [self updateCalendarDateBasedOnPageNumber];
     [self updateMaghribIqamaTime];
+    [gregorian release];
+    [result release];
 }
 
--(void) setAlarm:(NSDate*)date:(NSString*)eventText
+-(void) setAlarm: (NSDate*) date: (NSString*) eventText: (NSInteger)alarmType
 {
     UILocalNotification *localNotif = [[UILocalNotification alloc] init];
     if (localNotif == nil)
@@ -204,8 +217,12 @@
     localNotif.alertBody = eventText;
     // Set the action button
     localNotif.alertAction = @"View";
-    
-    NSInteger soundnumber = [settingsData getSoundTypeFromPlist];
+    NSInteger soundnumber;
+    if (alarmType == 0)
+        soundnumber = [settingsData getSoundTypeFromPlist];
+    else
+        soundnumber = [settingsData getIqamaSoundTypeFromPlist];
+        
     localNotif.soundName = [athaanNames_ objectAtIndex:soundnumber];
     //localNotif.applicationIconBadgeNumber = 1;
     // Specify custom data for the notification
@@ -245,6 +262,7 @@
         [self startIqamaAlarms];
     }
     [activity_ stopAnimating];
+    [gregorian release];
 }
 
 -(void)startAthaanAlarms
@@ -287,32 +305,36 @@
         NSDateFormatter *dateFormatV2 = [[NSDateFormatter alloc] init];
         [dateFormatV2 setDateFormat:@"h:mm a MMMM d, yyyy"];
         NSDate *date = [dateFormatV2 dateFromString:asrTime];
-        [self setAlarm:date:@"The time for Asr Prayer has begun"];
+        [self setAlarm:date:@"The time for Asr Prayer has begun":0];
         
         // set up fajr alarm
         NSString *fajrTime = [NSString stringWithFormat:@"%@ %@", [result fajr], dateString];
         date = [dateFormatV2 dateFromString:fajrTime];
-        [self setAlarm:date:@"The time for Fajr Prayer has begun"];
+        [self setAlarm:date:@"The time for Fajr Prayer has begun":0];
         
         // set up dhohur alarm
         NSString *dhohur = [NSString stringWithFormat:@"%@ %@", [result dhohur], dateString];
         date = [dateFormatV2 dateFromString:dhohur];
-        [self setAlarm:date:@"The time for Dhohur Prayer has begun"];
+        [self setAlarm:date:@"The time for Dhohur Prayer has begun":0];
         
         // set up maghrib alarm
         NSString *maghrib = [NSString stringWithFormat:@"%@ %@", [result maghrib], dateString];
         date = [dateFormatV2 dateFromString:maghrib];
-        [self setAlarm:date:@"The time for Maghrib Prayer has begun"];
+        [self setAlarm:date:@"The time for Maghrib Prayer has begun":0];
         
         // set up isha alarm
         NSString *isha = [NSString stringWithFormat:@"%@ %@", [result isha], dateString];
         date = [dateFormatV2 dateFromString:isha];
-        [self setAlarm:date:@"The time for Ishaa Prayer has begun"];
+        [self setAlarm:date:@"The time for Ishaa Prayer has begun":0];
         
         //now lets set up the iqama times
         
         
-        [dateFormat release];        
+        [dateFormat release];  
+        [comps release];
+        [gregorian release];
+        [dateFormatV2 release];
+        [result release];
         
     }
 }
@@ -355,31 +377,40 @@
         NSDateFormatter *dateFormatV2 = [[NSDateFormatter alloc] init];
         [dateFormatV2 setDateFormat:@"h:mm a MMMM d, yyyy"];
         NSDate *date = [dateFormatV2 dateFromString:asrTime];
-        [self setAlarm:date:@"Asr Prayer at ICBR is about to begin"];
+        NSDate *newDate = [date dateByAddingTimeInterval:-60*[settingsData getIqamaAdvanceTimeFromPlist]];
+        [self setAlarm:newDate:@"Asr Prayer at ICBR is about to begin":1];
         
         // set up fajr alarm
         NSString *fajrTime = [NSString stringWithFormat:@"%@ %@", [result fajr], dateString];
         date = [dateFormatV2 dateFromString:fajrTime];
-        [self setAlarm:date:@"Fajr Prayer at ICBR is about to begin"];
+        newDate = [date dateByAddingTimeInterval:-60*[settingsData getIqamaAdvanceTimeFromPlist]];
+        [self setAlarm:newDate:@"Fajr Prayer at ICBR is about to begin":1];
         
         // set up dhohur alarm
         NSString *dhohur = [NSString stringWithFormat:@"%@ %@", [result dhohur], dateString];
         date = [dateFormatV2 dateFromString:dhohur];
-        [self setAlarm:date:@"Dhohur Prayer at ICBR is about to begin"];
+        newDate = [date dateByAddingTimeInterval:-60*[settingsData getIqamaAdvanceTimeFromPlist]];
+        [self setAlarm:newDate:@"Dhohur Prayer at ICBR is about to begin":1];
         
         // set up maghrib alarm
         NSString *maghrib = [NSString stringWithFormat:@"%@ %@", [result maghrib], dateString];
         date = [dateFormatV2 dateFromString:maghrib];
-        [self setAlarm:date:@"Maghrib Prayer at ICBR is about to begin"];
+        newDate = [date dateByAddingTimeInterval:-60*[settingsData getIqamaAdvanceTimeFromPlist]];
+
+        [self setAlarm:newDate:@"Maghrib Prayer at ICBR is about to begin":1];
         
         // set up isha alarm
         NSString *isha = [NSString stringWithFormat:@"%@ %@", [result isha], dateString];
         date = [dateFormatV2 dateFromString:isha];
-        [self setAlarm:date:@"Isha Prayer at ICBR is about to begin"];
+        newDate = [date dateByAddingTimeInterval:-60*[settingsData getIqamaAdvanceTimeFromPlist]];
+
+        [self setAlarm:newDate:@"Isha Prayer at ICBR is about to begin":1];
         
-        //now lets set up the iqama times
-        
-        [dateFormat release];                
+        [dateFormat release];  
+        [comps release];
+        [gregorian release];
+        [result release];
+        [dateFormatV2 release];
     }
 }
 
@@ -426,10 +457,20 @@
     jumaa_.text = jumaa_.text;
     
     iqJumaa_.text = iqJumaa_.text;
-    iqFajr_.text = iqFajr_.text;
-    iqDhohur_.text = iqDhohur_.text;
-    iqAsr_.text = iqAsr_.text;
-    iqIsha_.text =iqIsha_.text;    
+    if ([settingsData getIqamaOverride])
+    {
+        iqFajr_.text = [settingsData getFajr];
+        iqDhohur_.text = [settingsData getDhohur];
+        iqAsr_.text = [settingsData getAsr];
+        iqIsha_.text =[settingsData getIsha];            
+    }
+    else
+    {
+        iqFajr_.text = iqFajr_.text;
+        iqDhohur_.text = iqDhohur_.text;
+        iqAsr_.text = iqAsr_.text;
+        iqIsha_.text =iqIsha_.text;    
+    }
     iqShurooq_.text = iqShurooq_.text;
     iqMaghrib_.text = iqMaghrib_.text;
     calendarDate_.text = calendarDate_.text;
@@ -455,7 +496,7 @@
     theTime = [theTime substringWithRange:NSMakeRange(1, [theTime length]-1)];  
     theTime = [theTime stringByAppendingFormat:@" pm"];
     iqMaghrib_.text = theTime;
-
+    [dateFormating release];
 }
 
 @end

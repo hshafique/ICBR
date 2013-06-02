@@ -16,5 +16,25 @@
 	<string>26.3583</string>
 	<key>Longitude</key>
 	<string>-80.0834</string>
+	<key>IqamaName</key>
+	<integer>0</integer>
+	<key>IqamaAdvanceTime</key>
+	<integer>0</integer>
+	<key>NewYear2012IsUpdated</key>
+	<false/>
+	<key>IqamaOverride</key>
+	<false/>
+	<key>Fajr</key>
+	<string></string>
+	<key>Dhohur</key>
+	<string></string>
+	<key>Asr</key>
+	<string></string>
+	<key>Maghrib</key>
+	<string></string>
+	<key>Isha</key>
+	<string></string>
+	<key>NewYear2013IsUpdated</key>
+	<false/>
 </dict>
 </plist>
